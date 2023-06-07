@@ -12,13 +12,13 @@ namespace GamesAPI.Models
             Jogos = new Collection<Jogo>();
         }
         [Key]
-        public int CATEGORIA_ID { get; set; }
+        public int CategoriaId { get; set; }
         [Required]
         [MaxLength(80)]
-        public string? NOME { get; set; }
+        public string? Nome { get; set; }
         [Required]
         [MaxLength(300)]
-        public string? IMAGEM_URL { get; set; }
+        public string? ImagemUrl { get; set; }
         public ICollection<Jogo>? Jogos { get; set;}
     }
 }

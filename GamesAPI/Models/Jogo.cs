@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace GamesAPI.Models
 {
@@ -7,27 +8,28 @@ namespace GamesAPI.Models
     public class Jogo
     {
         [Key]
-        public int JOGO_ID { get; set; }
+        public int JogoId { get; set; }
         [Required]
         [MaxLength(80)]
-        public string? NOME { get; set; }
+        public string? Nome { get; set; }
         [Required]
         [MaxLength(300)]
-        public string? DESCRICAO { get; set; }
+        public string? Descricao { get; set; }
         [Required]
-        [Column(TypeName = "decimal(2,2)")]
-        public decimal? NOTA { get; set; }
+        [Column(TypeName = "decimal(3,2)")]
+        public decimal? Nota { get; set; }
         [Required]
         [Column(TypeName = "decimal(10,2)")]
-        public decimal PRECO { get; set; }
+        public decimal Preco { get; set; }
         [Required]
         [MaxLength(300)]
-        public string? IMAGEM_URL { get; set; }
+        public string? ImagemUrl { get; set; }
         [Required]
         [MaxLength(4)]
-        public string? ANO_LANCAMENTO { get; set; }
-        public DateTime DATA_CADASTRO { get; set; }
-        public int CATEGORIA_ID { get; set; }
+        public string? AnoLancamento { get; set; }
+        public DateTime DataCadastro { get; set; }
+        public int CategoriaId { get; set; }
+        [JsonIgnore]
         public Categoria? Categoria { get; set; }
     }
 }

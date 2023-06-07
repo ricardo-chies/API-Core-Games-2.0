@@ -21,70 +21,67 @@ namespace GamesAPI.Migrations
 
             modelBuilder.Entity("GamesAPI.Models.Categoria", b =>
                 {
-                    b.Property<int>("CATEGORIA_ID")
+                    b.Property<int>("CategoriaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("IMAGEM_URL")
+                    b.Property<string>("ImagemUrl")
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("varchar(300)");
 
-                    b.Property<string>("NOME")
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("varchar(80)");
 
-                    b.HasKey("CATEGORIA_ID");
+                    b.HasKey("CategoriaId");
 
                     b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("GamesAPI.Models.Jogo", b =>
                 {
-                    b.Property<int>("JOGO_ID")
+                    b.Property<int>("JogoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("ANO_LANCAMENTO")
+                    b.Property<string>("AnoLancamento")
                         .IsRequired()
                         .HasMaxLength(4)
                         .HasColumnType("varchar(4)");
 
-                    b.Property<int>("CATEGORIA_ID")
+                    b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CATEGORIA_ID1")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DATA_CADASTRO")
+                    b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("DESCRICAO")
+                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("varchar(300)");
 
-                    b.Property<string>("IMAGEM_URL")
+                    b.Property<string>("ImagemUrl")
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("varchar(300)");
 
-                    b.Property<string>("NOME")
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("varchar(80)");
 
-                    b.Property<decimal?>("NOTA")
+                    b.Property<decimal?>("Nota")
                         .IsRequired()
-                        .HasColumnType("decimal(2,2)");
+                        .HasColumnType("decimal(3,2)");
 
-                    b.Property<decimal>("PRECO")
+                    b.Property<decimal>("Preco")
                         .HasColumnType("decimal(10,2)");
 
-                    b.HasKey("JOGO_ID");
+                    b.HasKey("JogoId");
 
-                    b.HasIndex("CATEGORIA_ID1");
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Jogos");
                 });
@@ -93,7 +90,9 @@ namespace GamesAPI.Migrations
                 {
                     b.HasOne("GamesAPI.Models.Categoria", "Categoria")
                         .WithMany("Jogos")
-                        .HasForeignKey("CATEGORIA_ID1");
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Categoria");
                 });
