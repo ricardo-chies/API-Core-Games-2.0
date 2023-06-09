@@ -1,4 +1,5 @@
 using GamesAPI.Context;
+using GamesAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -18,7 +19,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
                     options.UseMySql(mySqlconnection, 
                     ServerVersion.AutoDetect(mySqlconnection)));
 
-var app = builder.Build();
+builder.Services.AddScoped<IUnitOfWork, UnityOfWork>();
+
+var app = builder.Build(); //configure
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
