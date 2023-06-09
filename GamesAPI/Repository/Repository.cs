@@ -30,13 +30,13 @@ namespace GamesAPI.Repository
 
         public void Update(T entity)
         {
-            _context.Set<T>().Remove(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.Set<T>().Update(entity);
         }
 
         public void Delete(T entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            _context.Set<T>().Update(entity);
+            _context.Set<T>().Remove(entity);
         }  
     }
 }

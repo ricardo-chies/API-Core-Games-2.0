@@ -1,5 +1,6 @@
 ﻿using GamesAPI.Context;
 using GamesAPI.Models;
+using GamesAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,18 +10,22 @@ namespace APICatalogo.Controllers
     [ApiController]
     public class CategoriasController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CategoriasController(AppDbContext context)
+        public CategoriasController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet("Jogos")]
         public ActionResult<IEnumerable<Categoria>> GetCategoriasJogos()
         {
-            return _context.Categorias.Include(p => p.Jogos).
-                Where(c => c.CategoriaId <= 6).ToList(); // Irá retornar apenas as categorias com Id <= 6.
+            var categorias = _unitOfWork.CategoriaRepository.GetCategoriasJogos().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
+
+            if (categorias is null)
+                return NotFound("Jogos não encontrados.");
+
+            return categorias;
         }
 
         [HttpGet]
@@ -28,7 +33,7 @@ namespace APICatalogo.Controllers
         {
             try
             {
-                return _context.Categorias.AsNoTracking().ToList();
+                return _unitOfWork.CategoriaRepository.Get().AsNoTracking().ToList();
             }
             catch (Exception)
             {
@@ -42,7 +47,7 @@ namespace APICatalogo.Controllers
         {
             try
             {
-                var categoria = _context.Categorias.FirstOrDefault(p => p.CategoriaId == id);
+                var categoria = _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
 
                 if (categoria is null)
                     return NotFound($"Categoria com id={id} não encontrada.");
@@ -62,8 +67,8 @@ namespace APICatalogo.Controllers
             if (categoria is null)
                 return BadRequest("Dados inválidos...");
 
-            _context.Categorias.Add(categoria);
-            _context.SaveChanges();
+            _unitOfWork.CategoriaRepository.Add(categoria);
+            _unitOfWork.Commit();
 
             return new CreatedAtRouteResult("ObterCategoria",
                 new { id = categoria.CategoriaId }, categoria);
@@ -75,8 +80,8 @@ namespace APICatalogo.Controllers
             if (id != categoria.CategoriaId)
                 return BadRequest("Dados inválidos...");
 
-            _context.Entry(categoria).State = EntityState.Modified;
-            _context.SaveChanges();
+            _unitOfWork.CategoriaRepository.Update(categoria);
+            _unitOfWork.Commit();
 
             return Ok(categoria);
         }
@@ -84,13 +89,13 @@ namespace APICatalogo.Controllers
         [HttpDelete("{id:int}")]
         public ActionResult<Categoria> Delete(int id)
         {
-            var categoria = _context.Categorias.FirstOrDefault(p => p.CategoriaId == id);
+            var categoria = _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
 
             if (categoria is null)
                 return NotFound($"Categoria com id= {id} não localizada.");
 
-            _context.Categorias.Remove(categoria);
-            _context.SaveChanges();
+            _unitOfWork.CategoriaRepository.Delete(categoria);
+            _unitOfWork.Commit();
 
             return Ok(categoria);
         }
