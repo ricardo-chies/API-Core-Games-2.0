@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Po0CDJYWhsQR+6bqftBe36MVvEUmFgqJTgvyteZvLQMoyKF3fd9EgHfILXQuOuAuajesP+rlaC14mRgqmWvfhQ==",
+  "dgSpecHash": "GCjx8KXk05CQJWzYCFKZrH5U3XD25QaR+FD3Evc21PGnbSZOU5nlR7+TF1KJOn9nkhTh/OsEsoWghqwMZvLJ8w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ricardo Chies\\source\\repos\\EstudoAJV\\GamesAPI\\GamesAPI\\GamesAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Ricardo Chies\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Ricardo Chies\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
@@ -27,7 +29,7 @@
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.codeanalysis.visualbasic.workspaces\\4.0.0\\microsoft.codeanalysis.visualbasic.workspaces.4.0.0.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.0.0\\microsoft.codeanalysis.workspaces.common.4.0.0.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.codeanalysis.workspaces.msbuild\\4.0.0\\microsoft.codeanalysis.workspaces.msbuild.4.0.0.nupkg.sha512",
-    "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Ricardo Chies\\.nuget\\packages\\microsoft.diasymreader\\1.3.0\\microsoft.diasymreader.1.3.0.nupkg.sha512",
