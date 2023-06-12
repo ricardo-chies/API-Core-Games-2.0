@@ -4,6 +4,6 @@
     {
         ICategoriaRepository CategoriaRepository { get; }
         IJogoRepository JogoRepository { get; }
-        void Commit();
+        Task Commit();
     }
 }

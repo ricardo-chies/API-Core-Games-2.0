@@ -24,10 +24,10 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<JogoDTO>> Get([FromQuery] JogosParameters jogosParameters)
+        public async Task<ActionResult<IEnumerable<JogoDTO>>> Get([FromQuery] JogosParameters jogosParameters)
         {
-            //var jogos = _unitOfWork.JogoRepository.Get().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
-            var jogos = _unitOfWork.JogoRepository.GetJogos(jogosParameters);
+            //var jogos = _unitOfWork.JogoRepository.Get().Take(10).ToListAsync(); // Irá retornar no máximo 10 Jogos
+            var jogos = await _unitOfWork.JogoRepository.GetJogos(jogosParameters);
 
             if (jogos is null)
                 return NotFound("Jogos não encontrados.");
@@ -50,9 +50,9 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet("{id:int}", Name = "ObterJogo")]
-        public ActionResult<JogoDTO> Get(int id)
+        public async Task<ActionResult<JogoDTO>> Get(int id)
         {
-            var jogo = _unitOfWork.JogoRepository.GetById(p => p.JogoId == id);
+            var jogo = await _unitOfWork.JogoRepository.GetById(p => p.JogoId == id);
 
             if (jogo is null)
                 return NotFound("Jogo não encontrado.");
@@ -63,9 +63,11 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet("MenorPreco")]
-        public ActionResult<IEnumerable<JogoDTO>> GetJogosPrecos()
+        public async Task<ActionResult<IEnumerable<JogoDTO>>> GetJogosPrecos()
         {
-            var jogos = _unitOfWork.JogoRepository.GetJogoPorPreco().Take(10).ToList();
+            //var jogos = _unitOfWork.JogoRepository.GetJogoPorPreco().Take(10).ToList();
+
+            var jogos = await _unitOfWork.JogoRepository.GetJogoPorPreco();
 
             if (jogos is null)
                 return NotFound("Jogos não encontrados.");
@@ -76,7 +78,7 @@ namespace APICatalogo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]JogoDTO jogoDto)
+        public async Task<ActionResult> Post([FromBody]JogoDTO jogoDto)
         {
             if (jogoDto is null)
                 return BadRequest();
@@ -84,7 +86,7 @@ namespace APICatalogo.Controllers
             var jogo = _mapper.Map<Jogo>(jogoDto);
 
             _unitOfWork.JogoRepository.Add(jogo);
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             var jogoDTO = _mapper.Map<JogoDTO>(jogo);
 
@@ -93,7 +95,7 @@ namespace APICatalogo.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult Put(int id, [FromBody]Jogo jogoDto)
+        public async Task<ActionResult> Put(int id, [FromBody]Jogo jogoDto)
         {
             if (id != jogoDto.JogoId)
                 return BadRequest();
@@ -101,7 +103,7 @@ namespace APICatalogo.Controllers
             var jogo = _mapper.Map<Jogo>(jogoDto);
 
             _unitOfWork.JogoRepository.Update(jogo);
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             var jogoDTO = _mapper.Map<JogoDTO>(jogo);
 
@@ -109,15 +111,15 @@ namespace APICatalogo.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public ActionResult<JogoDTO> Delete(int id)
+        public async Task<ActionResult<JogoDTO>> Delete(int id)
         {
-            var jogo = _unitOfWork.JogoRepository.GetById(p => p.JogoId == id);                                                                     
+            var jogo = await _unitOfWork.JogoRepository.GetById(p => p.JogoId == id);                                                                     
 
             if (jogo is null)
                 return NotFound("Jogo não localizado.");
 
             _unitOfWork.JogoRepository.Delete(jogo);
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             var jogoDTO = _mapper.Map<JogoDTO>(jogo);
 

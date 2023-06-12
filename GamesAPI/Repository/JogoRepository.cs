@@ -1,6 +1,7 @@
 ﻿using GamesAPI.Context;
 using GamesAPI.Models;
 using GamesAPI.Pagination;
+using Microsoft.EntityFrameworkCore;
 
 namespace GamesAPI.Repository
 {
@@ -10,14 +11,14 @@ namespace GamesAPI.Repository
         { 
 
         }
-        public IEnumerable<Jogo> GetJogoPorPreco()
+        public async Task<IEnumerable<Jogo>> GetJogoPorPreco()
         {
-            return Get().OrderBy(c => c.Preco).ToList();
+            return await Get().OrderBy(c => c.Preco).ToListAsync();
         }
 
-        public PagedList<Jogo> GetJogos(JogosParameters jogosParameters)
+        public async Task<PagedList<Jogo>> GetJogos(JogosParameters jogosParameters)
         {
-            return PagedList<Jogo>.ToPagedList(Get().OrderBy(on => on.JogoId),
+            return await PagedList<Jogo>.ToPagedList(Get().OrderBy(on => on.JogoId),
                 jogosParameters.PageNumber, jogosParameters.PageSize);
         }
     }

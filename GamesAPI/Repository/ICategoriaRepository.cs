@@ -5,7 +5,7 @@ namespace GamesAPI.Repository
 {
     public interface ICategoriaRepository : IRepository<Categoria>
     {
-        IEnumerable<Categoria> GetCategoriasJogos();
-        PagedList<Categoria> GetCategorias(CategoriasParameters categoriasParameters);
+        Task<IEnumerable<Categoria>> GetCategoriasJogos();
+        Task<PagedList<Categoria>> GetCategorias(CategoriasParameters categoriasParameters);
     }
 }

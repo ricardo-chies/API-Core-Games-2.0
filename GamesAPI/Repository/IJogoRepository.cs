@@ -5,7 +5,7 @@ namespace GamesAPI.Repository
 {
     public interface IJogoRepository : IRepository<Jogo>
     {
-        IEnumerable<Jogo> GetJogoPorPreco();
-        PagedList<Jogo> GetJogos(JogosParameters jogosParameters);
+        Task<IEnumerable<Jogo>> GetJogoPorPreco();
+        Task<PagedList<Jogo>> GetJogos(JogosParameters jogosParameters);
     }
 }

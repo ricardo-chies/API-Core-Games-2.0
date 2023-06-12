@@ -12,14 +12,14 @@ namespace GamesAPI.Repository
         
         }
 
-        public IEnumerable<Categoria> GetCategoriasJogos()
+        public async Task<IEnumerable<Categoria>> GetCategoriasJogos()
         {
-            return Get().Include(x => x.Jogos);
+            return await Get().Include(x => x.Jogos).ToListAsync();
         }
 
-        public PagedList<Categoria> GetCategorias(CategoriasParameters categoriasParameters)
+        public async Task<PagedList<Categoria>> GetCategorias(CategoriasParameters categoriasParameters)
         {
-            return PagedList<Jogo>.ToPagedList(Get().OrderBy(on => on.CategoriaId),
+            return await PagedList<Jogo>.ToPagedList(Get().OrderBy(on => on.CategoriaId),
                 categoriasParameters.PageNumber, categoriasParameters.PageSize);
         }
     }

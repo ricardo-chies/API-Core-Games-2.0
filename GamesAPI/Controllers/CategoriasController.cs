@@ -24,9 +24,10 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet("Jogos")]
-        public ActionResult<IEnumerable<CategoriaDTO>> GetCategoriasJogos()
+        public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetCategoriasJogos()
         {
-            var categorias = _unitOfWork.CategoriaRepository.GetCategoriasJogos().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
+            //var categorias = _unitOfWork.CategoriaRepository.GetCategoriasJogos().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
+            var categorias = await _unitOfWork.CategoriaRepository.GetCategoriasJogos();
 
             if (categorias is null)
                 return NotFound("Jogos não encontrados.");
@@ -37,12 +38,16 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<CategoriaDTO>> Get([FromQuery] CategoriasParameters categoriasParameters)
+        public async Task<ActionResult<IEnumerable<CategoriaDTO>>> Get([FromQuery] CategoriasParameters categoriasParameters)
         {
             try
             {
-                //var categorias = _unitOfWork.CategoriaRepository.Get().AsNoTracking().ToList();
-                var categorias = _unitOfWork.CategoriaRepository.GetCategorias(categoriasParameters);
+                //var categorias = _unitOfWork.CategoriaRepository.Get().AsNoTracking().ToListAsync();
+
+                var categorias = await _unitOfWork.CategoriaRepository.GetCategorias(categoriasParameters);
+
+                if (categorias is null)
+                    return NotFound("Jogos não encontrados.");
 
                 var metadata = new
                 {
@@ -68,11 +73,11 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet("{id:int}", Name = "ObterCategoria")]
-        public ActionResult<CategoriaDTO> Get(int id)
+        public async Task<ActionResult<CategoriaDTO>> Get(int id)
         {
             try
             {
-                var categoria = _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
+                var categoria = await _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
 
                 if (categoria is null)
                     return NotFound($"Categoria com id={id} não encontrada.");
@@ -89,7 +94,7 @@ namespace APICatalogo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]CategoriaDTO categoriaDto)
+        public async Task<ActionResult> Post([FromBody]CategoriaDTO categoriaDto)
         {
             if (categoriaDto is null)
                 return BadRequest("Dados inválidos...");
@@ -97,7 +102,7 @@ namespace APICatalogo.Controllers
             var categoria = _mapper.Map<Categoria>(categoriaDto);
 
             _unitOfWork.CategoriaRepository.Add(categoria);
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
 
@@ -106,7 +111,7 @@ namespace APICatalogo.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult Put(int id, [FromBody]CategoriaDTO categoriaDto)
+        public async Task<ActionResult> Put(int id, [FromBody]CategoriaDTO categoriaDto)
         {
             if (id != categoriaDto.CategoriaId)
                 return BadRequest("Dados inválidos...");
@@ -114,7 +119,7 @@ namespace APICatalogo.Controllers
             var categoria = _mapper.Map<Categoria>(categoriaDto);
 
             _unitOfWork.CategoriaRepository.Update(categoria);
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
 
@@ -122,15 +127,15 @@ namespace APICatalogo.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public ActionResult<CategoriaDTO> Delete(int id)
+        public async Task<ActionResult<CategoriaDTO>> Delete(int id)
         {
-            var categoria = _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
+            var categoria = await _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
 
             if (categoria is null)
                 return NotFound($"Categoria com id= {id} não localizada.");
 
             _unitOfWork.CategoriaRepository.Delete(categoria);
-            _unitOfWork.Commit();
+            await _unitOfWork.Commit();
 
             var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
 
