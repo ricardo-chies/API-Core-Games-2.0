@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using GamesAPI.DTO;
 using GamesAPI.Models;
+using GamesAPI.Pagination;
 using GamesAPI.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace APICatalogo.Controllers
 {
@@ -22,12 +24,25 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<JogoDTO>> Get()
+        public ActionResult<IEnumerable<JogoDTO>> Get([FromQuery] JogosParameters jogosParameters)
         {
-            var jogos = _unitOfWork.JogoRepository.Get().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
+            //var jogos = _unitOfWork.JogoRepository.Get().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
+            var jogos = _unitOfWork.JogoRepository.GetJogos(jogosParameters);
 
             if (jogos is null)
                 return NotFound("Jogos não encontrados.");
+
+            var metadata = new
+            {
+                jogos.TotalCount,
+                jogos.PageSize,
+                jogos.CurrentPage,
+                jogos.TotalPages,
+                jogos.HasPrevious,
+                jogos.HasNext
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
 
             var jogosDTO = _mapper.Map<List<JogoDTO>>(jogos);
 

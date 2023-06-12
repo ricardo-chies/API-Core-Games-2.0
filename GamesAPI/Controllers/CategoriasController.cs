@@ -2,9 +2,11 @@
 using GamesAPI.Context;
 using GamesAPI.DTO;
 using GamesAPI.Models;
+using GamesAPI.Pagination;
 using GamesAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace APICatalogo.Controllers
 {
@@ -35,11 +37,24 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<CategoriaDTO>> Get()
+        public ActionResult<IEnumerable<CategoriaDTO>> Get([FromQuery] CategoriasParameters categoriasParameters)
         {
             try
             {
-                var categorias = _unitOfWork.CategoriaRepository.Get().AsNoTracking().ToList();
+                //var categorias = _unitOfWork.CategoriaRepository.Get().AsNoTracking().ToList();
+                var categorias = _unitOfWork.CategoriaRepository.GetCategorias(categoriasParameters);
+
+                var metadata = new
+                {
+                    categorias.TotalCount,
+                    categorias.PageSize,
+                    categorias.CurrentPage,
+                    categorias.TotalPages,
+                    categorias.HasPrevious,
+                    categorias.HasNext
+                };
+
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
 
                 var categoriasDTO = _mapper.Map<List<CategoriaDTO>>(categorias);
 
