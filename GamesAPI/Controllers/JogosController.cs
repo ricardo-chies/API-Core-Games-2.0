@@ -3,6 +3,7 @@ using GamesAPI.DTO;
 using GamesAPI.Models;
 using GamesAPI.Pagination;
 using GamesAPI.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Newtonsoft.Json;
 
 namespace APICatalogo.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("[controller]")]
     [ApiController]
     public class JogosController : ControllerBase
