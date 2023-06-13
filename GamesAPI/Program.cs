@@ -51,6 +51,8 @@ builder.Services.AddSwaggerGen(c =>
 
 });
 
+// Habilitando CORS
+builder.Services.AddCors();
 
 // Configure DbContext
 string mySqlconnection = builder.Configuration.GetConnectionString("LocalConnection");
@@ -103,6 +105,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Política Restritiva CORS
+// app.UseCors(opt => opt.WithOrigins("Nome da URL").WithMethods("GET"));
+
+app.UseCors(opt => opt.AllowAnyOrigin());
 
 app.UseHttpsRedirection();
 
