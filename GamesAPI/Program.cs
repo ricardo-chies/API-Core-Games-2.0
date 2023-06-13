@@ -2,6 +2,7 @@ using AutoMapper;
 using GamesAPI.Context;
 using GamesAPI.DTO.Mapping;
 using GamesAPI.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -21,6 +22,11 @@ string mySqlconnection = builder.Configuration.GetConnectionString("LocalConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
                     options.UseMySql(mySqlconnection, 
                     ServerVersion.AutoDetect(mySqlconnection)));
+
+//Configure Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IUnitOfWork, UnityOfWork>();
 
@@ -43,6 +49,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
