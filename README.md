@@ -12,6 +12,7 @@ Foi criada uma aplicação ASP Net Core Web API .net 6.0 utilizando:
   <li>Biblioteca AutoMapper para realizar o mapeamento das classes.</li>
   <li>Paginação de dados na API.</li>
   <li>Programação Assíncrona.</li>
+  <li>Identity - Autenticação JWT.</li>
 </ul>
   
 Através desta API podemos:
@@ -24,14 +25,14 @@ Através desta API podemos:
 # Layout do Projeto
 
 <p align="center">
-  <img width="1000" height="700" src="GamesAPI/assets/to_readme/GamesAPI.png">
+  <img width="900" height="700" src="GamesAPI/assets/to_readme/GamesAPI.png">
 </p>
 
 # Tecnologias Utilizadas
 
 <ul>
   <li>C#</li>
-  <li>.net 6.0</li>
+  <li>.NET 6.0</li>
   <li>Swagger</li>
   <li>Visual Studio 2022</li>
   <li>MySql Workbench</li>
