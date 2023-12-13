@@ -16,25 +16,39 @@ namespace APICatalogo.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<CategoriasController> _logger;
 
-        public CategoriasController(IUnitOfWork unitOfWork, IMapper mapper)
+        public CategoriasController(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CategoriasController> logger)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet("Jogos")]
         public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetCategoriasJogos()
         {
-            //var categorias = _unitOfWork.CategoriaRepository.GetCategoriasJogos().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
-            var categorias = await _unitOfWork.CategoriaRepository.GetCategoriasJogos();
+            try
+            {
+                //var categorias = _unitOfWork.CategoriaRepository.GetCategoriasJogos().Take(10).ToList(); // Irá retornar no máximo 10 Jogos
+                var categorias = await _unitOfWork.CategoriaRepository.GetCategoriasJogos();
 
-            if (categorias is null)
-                return NotFound("Jogos não encontrados.");
+                if (categorias is null)
+                    return NotFound("Jogos não encontrados.");
 
-            var categoriasDTO = _mapper.Map<List<CategoriaDTO>>(categorias);
+                var categoriasDTO = _mapper.Map<List<CategoriaDTO>>(categorias);
 
-            return Ok(categoriasDTO);
+                _logger.LogInformation("Categorias retornadas com sucesso.");
+                return Ok(categoriasDTO);
+            }             
+            catch (Exception ex)
+            {
+                _logger.LogInformation("Ocorreu um problema ao tratar a sua solicitação.", ex.Message);
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Ocorreu um problema ao tratar a sua solicitação. ");
+            }
+
         }
 
         [HttpGet]
@@ -60,13 +74,15 @@ namespace APICatalogo.Controllers
                 };
 
                 Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
-
                 var categoriasDTO = _mapper.Map<List<CategoriaDTO>>(categorias);
 
+                _logger.LogInformation("Categorias retornadas com sucesso.");
                 return Ok(categoriasDTO);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                _logger.LogInformation("Ocorreu um problema ao tratar a sua solicitação.", ex.Message);
+
                 return StatusCode(StatusCodes.Status500InternalServerError,
                     "Ocorreu um problema ao tratar a sua solicitação. ");
             }
@@ -84,10 +100,13 @@ namespace APICatalogo.Controllers
 
                 var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
 
+                _logger.LogInformation("Categoria retornada com sucesso.");
                 return Ok(categoriaDTO);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                _logger.LogInformation("Ocorreu um problema ao tratar a sua solicitação.", ex.Message);
+
                 return StatusCode(StatusCodes.Status500InternalServerError,
                     "Ocorreu um problema ao tratar a sua solicitação. ");
             }
@@ -96,50 +115,86 @@ namespace APICatalogo.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody]CategoriaDTO categoriaDto)
         {
-            if (categoriaDto is null)
-                return BadRequest("Dados inválidos...");
+            try
+            {
+                if (categoriaDto is null)
+                    return BadRequest("Dados inválidos...");
 
-            var categoria = _mapper.Map<Categoria>(categoriaDto);
+                var categoria = _mapper.Map<Categoria>(categoriaDto);
 
-            _unitOfWork.CategoriaRepository.Add(categoria);
-            await _unitOfWork.Commit();
+                _unitOfWork.CategoriaRepository.Add(categoria);
+                await _unitOfWork.Commit();
 
-            var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
+                var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
 
-            return new CreatedAtRouteResult("ObterCategoria",
-                new { id = categoria.CategoriaId }, categoriaDTO);
+                _logger.LogInformation("Categoria cadastrada com sucesso.");
+                return new CreatedAtRouteResult("ObterCategoria",
+                    new { id = categoria.CategoriaId }, categoriaDTO);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("Ocorreu um problema ao tratar a sua solicitação.", ex.Message);
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Ocorreu um problema ao tratar a sua solicitação. ");
+            }
+
         }
 
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(int id, [FromBody]CategoriaDTO categoriaDto)
         {
-            if (id != categoriaDto.CategoriaId)
-                return BadRequest("Dados inválidos...");
+            try
+            {
+                if (id != categoriaDto.CategoriaId)
+                    return BadRequest("Dados inválidos...");
 
-            var categoria = _mapper.Map<Categoria>(categoriaDto);
+                var categoria = _mapper.Map<Categoria>(categoriaDto);
 
-            _unitOfWork.CategoriaRepository.Update(categoria);
-            await _unitOfWork.Commit();
+                _unitOfWork.CategoriaRepository.Update(categoria);
+                await _unitOfWork.Commit();
 
-            var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
+                var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
 
-            return Ok(categoriaDTO);
+                _logger.LogInformation("Categoria alterada com sucesso.");
+                return Ok(categoriaDTO);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("Ocorreu um problema ao tratar a sua solicitação.", ex.Message);
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Ocorreu um problema ao tratar a sua solicitação. ");
+            }
+
         }
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<CategoriaDTO>> Delete(int id)
         {
-            var categoria = await _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
+            try
+            {
+                var categoria = await _unitOfWork.CategoriaRepository.GetById(p => p.CategoriaId == id);
 
-            if (categoria is null)
-                return NotFound($"Categoria com id= {id} não localizada.");
+                if (categoria is null)
+                    return NotFound($"Categoria com id= {id} não localizada.");
 
-            _unitOfWork.CategoriaRepository.Delete(categoria);
-            await _unitOfWork.Commit();
+                _unitOfWork.CategoriaRepository.Delete(categoria);
+                await _unitOfWork.Commit();
 
-            var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
+                var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
 
-            return Ok(categoriaDTO);
+                _logger.LogInformation("Categoria deletada com sucesso.");
+                return Ok(categoriaDTO);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("Ocorreu um problema ao tratar a sua solicitação.", ex.Message);
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Ocorreu um problema ao tratar a sua solicitação. ");
+            }
+
         }
 
     }

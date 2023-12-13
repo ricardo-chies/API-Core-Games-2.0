@@ -7,9 +7,8 @@ namespace GamesAPI.Repository
 {
     public class CategoriaRepository : Repository<Categoria>, ICategoriaRepository
     {
-        public CategoriaRepository(AppDbContext context) : base(context) 
+        public CategoriaRepository(AppDbContext context, ILogger<CategoriaRepository> logger) : base(context, logger)
         {
-        
         }
 
         public async Task<IEnumerable<Categoria>> GetCategoriasJogos()

@@ -7,10 +7,10 @@ namespace GamesAPI.Repository
 {
     public class JogoRepository : Repository<Jogo>, IJogoRepository
     {
-        public JogoRepository(AppDbContext context) : base(context) 
-        { 
-
+        public JogoRepository(AppDbContext context, ILogger<JogoRepository> logger) : base(context, logger)
+        {
         }
+
         public async Task<IEnumerable<Jogo>> GetJogoPorPreco()
         {
             return await Get().OrderBy(c => c.Preco).ToListAsync();

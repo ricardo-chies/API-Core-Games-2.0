@@ -1,0 +1,153 @@
+13-12-2023 16:57:50 Information: 1 - Now listening on: https://localhost:7275
+13-12-2023 16:57:50 Information: 2 - Now listening on: http://localhost:5278
+13-12-2023 16:57:50 Information: 3 - Application started. Press Ctrl+C to shut down.
+13-12-2023 16:57:50 Information: 4 - Hosting environment: Development
+13-12-2023 16:57:50 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+13-12-2023 17:01:44 Information: 1 - Application started. Press Ctrl+C to shut down.
+13-12-2023 17:01:44 Information: 2 - Hosting environment: Development
+13-12-2023 17:01:44 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+13-12-2023 17:32:48 Information: 4 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 17:32:49 Information: 5 - Executed DbCommand (53ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+13-12-2023 17:33:07 Warning: 6 - User password validation failed: PasswordRequiresNonAlphanumeric;PasswordRequiresLower;PasswordRequiresUpper.
+13-12-2023 18:01:05 Information: 1 - Application started. Press Ctrl+C to shut down.
+13-12-2023 18:01:05 Information: 2 - Hosting environment: Development
+13-12-2023 18:01:05 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+13-12-2023 18:04:30 Information: 1 - Now listening on: https://localhost:7275
+13-12-2023 18:04:30 Information: 2 - Now listening on: http://localhost:5278
+13-12-2023 18:04:30 Information: 3 - Application started. Press Ctrl+C to shut down.
+13-12-2023 18:04:30 Information: 4 - Hosting environment: Development
+13-12-2023 18:04:30 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+13-12-2023 18:04:39 Information: 6 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 18:04:39 Information: 7 - Executed DbCommand (55ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+13-12-2023 18:04:40 Information: 8 - Executed DbCommand (12ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+13-12-2023 18:04:40 Information: 9 - Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+13-12-2023 18:06:21 Information: 10 - Acessando Repositório de Jogos...
+13-12-2023 18:06:21 Information: 11 - Buscando informações...
+13-12-2023 18:06:21 Information: 12 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 18:06:21 Information: 13 - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Jogos` AS `j`
+13-12-2023 18:06:21 Information: 14 - Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+ORDER BY `j`.`JogoId`
+LIMIT @__p_1 OFFSET @__p_0
+13-12-2023 18:06:57 Information: 15 - Acessando Repositório de Jogos...
+13-12-2023 18:06:57 Information: 16 - Buscando informações por ID...
+13-12-2023 18:06:58 Information: 17 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 18:06:58 Information: 18 - Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+WHERE `j`.`JogoId` = @__id_0
+LIMIT 2
+13-12-2023 20:32:31 Information: 1 - Now listening on: https://localhost:7275
+13-12-2023 20:32:31 Information: 2 - Now listening on: http://localhost:5278
+13-12-2023 20:32:31 Information: 3 - Application started. Press Ctrl+C to shut down.
+13-12-2023 20:32:31 Information: 4 - Hosting environment: Development
+13-12-2023 20:32:31 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+13-12-2023 20:32:48 Information: 6 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 20:32:48 Information: 7 - Executed DbCommand (52ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`Id` = @__p_0
+LIMIT 1
+13-12-2023 20:32:48 Information: 8 - Executed DbCommand (8ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+13-12-2023 20:32:49 Information: 9 - Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+13-12-2023 20:32:49 Information: 10 - Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+13-12-2023 20:32:49 Information: 11 - Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+13-12-2023 20:32:49 Information: 12 - Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+13-12-2023 20:33:06 Information: 13 - Acessando Repositório de Jogos...
+13-12-2023 20:33:06 Information: 14 - Buscando informações por ID...
+13-12-2023 20:33:06 Information: 15 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 20:33:06 Information: 16 - Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+WHERE `j`.`JogoId` = @__id_0
+LIMIT 2
+13-12-2023 20:33:06 Information: 17 - Jogo retornado com sucesso.
+13-12-2023 20:33:20 Information: 18 - Acessando Repositório de Jogos...
+13-12-2023 20:33:20 Information: 19 - Buscando informações...
+13-12-2023 20:33:20 Information: 20 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 20:33:20 Information: 21 - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Jogos` AS `j`
+13-12-2023 20:33:20 Information: 22 - Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+ORDER BY `j`.`JogoId`
+LIMIT @__p_1 OFFSET @__p_0
+13-12-2023 20:33:20 Information: 23 - Jogos retornados com sucesso.
+13-12-2023 20:33:38 Information: 24 - Acessando Repositório de Jogos...
+13-12-2023 20:33:38 Information: 25 - Buscando informações...
+13-12-2023 20:33:38 Information: 26 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 20:33:38 Information: 27 - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+ORDER BY `j`.`Preco`
+13-12-2023 20:33:38 Information: 28 - Jogos retornados com sucesso.
+13-12-2023 20:33:48 Information: 29 - Acessando Repositório de Categorias...
+13-12-2023 20:33:48 Information: 30 - Buscando informações...
+13-12-2023 20:33:48 Information: 31 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 20:33:48 Information: 32 - Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`, `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Categorias` AS `c`
+LEFT JOIN `Jogos` AS `j` ON `c`.`CategoriaId` = `j`.`CategoriaId`
+ORDER BY `c`.`CategoriaId`
+13-12-2023 20:33:48 Information: 33 - Categorias retornadas com sucesso.
+13-12-2023 20:34:01 Information: 34 - Acessando Repositório de Categorias...
+13-12-2023 20:34:01 Information: 35 - Buscando informações...
+13-12-2023 20:34:01 Information: 36 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 20:34:01 Information: 37 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Categorias` AS `c`
+13-12-2023 20:34:01 Information: 38 - Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`
+FROM `Categorias` AS `c`
+ORDER BY `c`.`CategoriaId`
+LIMIT @__p_1 OFFSET @__p_0
+13-12-2023 20:34:01 Information: 39 - Categorias retornadas com sucesso.
+13-12-2023 20:35:05 Information: 40 - Acessando Repositório de Jogos...
+13-12-2023 20:35:05 Information: 41 - Buscando informações...
+13-12-2023 20:35:05 Information: 42 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+13-12-2023 20:35:05 Information: 43 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Jogos` AS `j`
+13-12-2023 20:35:05 Information: 44 - Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+ORDER BY `j`.`JogoId`
+LIMIT @__p_1 OFFSET @__p_0
+13-12-2023 20:35:05 Information: 45 - Jogos retornados com sucesso.
