@@ -295,3 +295,9 @@ C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0
 C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\Scrutor.dll
+C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\bin\Debug\net6.0\GamesAPI.xml
+C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\obj\Debug\net6.0\GamesAPI.xml

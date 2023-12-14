@@ -151,3 +151,236 @@ FROM `Jogos` AS `j`
 ORDER BY `j`.`JogoId`
 LIMIT @__p_1 OFFSET @__p_0
 13-12-2023 20:35:05 Information: 45 - Jogos retornados com sucesso.
+14-12-2023 15:17:46 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 15:17:46 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 15:17:46 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:17:46 Information: 4 - Hosting environment: Development
+14-12-2023 15:17:46 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:21:35 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 15:21:35 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 15:21:35 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:21:35 Information: 4 - Hosting environment: Development
+14-12-2023 15:21:35 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:21:36 Error: 6 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:21:36 Error: 7 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:24:10 Information: 1 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:24:10 Information: 2 - Hosting environment: Development
+14-12-2023 15:24:10 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:24:10 Error: 4 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:24:11 Error: 5 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:34:36 Information: 1 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:34:36 Information: 2 - Hosting environment: Development
+14-12-2023 15:34:36 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:34:36 Error: 4 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:34:36 Error: 5 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:37:19 Information: 1 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:37:19 Information: 2 - Hosting environment: Development
+14-12-2023 15:37:19 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:37:20 Error: 4 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:37:20 Error: 5 - An unhandled exception has occurred while executing the request.
+14-12-2023 15:40:26 Information: 1 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:40:26 Information: 2 - Hosting environment: Development
+14-12-2023 15:40:26 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:40:43 Information: 1 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:40:43 Information: 2 - Hosting environment: Development
+14-12-2023 15:40:43 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:41:00 Information: 1 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:41:00 Information: 2 - Hosting environment: Development
+14-12-2023 15:41:00 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:52:45 Information: 1 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:52:45 Information: 2 - Hosting environment: Development
+14-12-2023 15:52:45 Information: 3 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:57:15 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 15:57:15 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 15:57:15 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 15:57:15 Information: 4 - Hosting environment: Development
+14-12-2023 15:57:15 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 15:57:25 Information: 6 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 15:57:25 Information: 7 - Executed DbCommand (50ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+14-12-2023 15:57:26 Information: 8 - Executed DbCommand (7ms) [Parameters=[@__user_Id_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ClaimType`, `a`.`ClaimValue`, `a`.`UserId`
+FROM `AspNetUserClaims` AS `a`
+WHERE `a`.`UserId` = @__user_Id_0
+14-12-2023 15:57:26 Information: 9 - Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+14-12-2023 15:57:47 Information: 10 - Acessando Repositório de Jogos...
+14-12-2023 15:57:47 Information: 11 - Buscando informações...
+14-12-2023 15:57:47 Information: 12 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 15:57:47 Information: 13 - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+ORDER BY `j`.`Preco`
+14-12-2023 15:57:47 Information: 14 - Jogos retornados com sucesso.
+14-12-2023 15:58:33 Information: 15 - Acessando Repositório de Categorias...
+14-12-2023 15:58:33 Information: 16 - Buscando informações...
+14-12-2023 15:58:33 Information: 17 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 15:58:33 Information: 18 - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Categorias` AS `c`
+14-12-2023 15:58:33 Information: 19 - Executed DbCommand (8ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`
+FROM `Categorias` AS `c`
+ORDER BY `c`.`CategoriaId`
+LIMIT @__p_1 OFFSET @__p_0
+14-12-2023 15:58:33 Information: 20 - Categorias retornadas com sucesso.
+14-12-2023 16:02:48 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:02:48 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:02:48 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:02:48 Information: 4 - Hosting environment: Development
+14-12-2023 16:02:48 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:03:08 Information: 6 - Acessando Repositório de Categorias...
+14-12-2023 16:03:08 Information: 7 - Buscando informações...
+14-12-2023 16:03:09 Information: 8 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:03:09 Information: 9 - Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Categorias` AS `c`
+14-12-2023 16:03:10 Information: 10 - Executed DbCommand (22ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`
+FROM `Categorias` AS `c`
+ORDER BY `c`.`CategoriaId`
+LIMIT @__p_1 OFFSET @__p_0
+14-12-2023 16:03:10 Information: 11 - Categorias retornadas com sucesso.
+14-12-2023 16:05:29 Information: 12 - Acessando Repositório de Categorias...
+14-12-2023 16:05:29 Information: 13 - Buscando informações...
+14-12-2023 16:05:29 Information: 14 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:05:29 Information: 15 - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`, `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Categorias` AS `c`
+LEFT JOIN `Jogos` AS `j` ON `c`.`CategoriaId` = `j`.`CategoriaId`
+ORDER BY `c`.`CategoriaId`
+14-12-2023 16:05:29 Information: 16 - Categorias retornadas com sucesso.
+14-12-2023 16:12:41 Information: 17 - Acessando Repositório de Categorias...
+14-12-2023 16:12:41 Information: 18 - Inserindo novos dados...
+14-12-2023 16:12:41 Information: 19 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:12:41 Information: 20 - Salvando dados...
+14-12-2023 16:12:41 Information: 21 - Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 300), @p1='?' (Size = 80)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `Categorias` (`ImagemUrl`, `Nome`)
+VALUES (@p0, @p1);
+SELECT `CategoriaId`
+FROM `Categorias`
+WHERE ROW_COUNT() = 1 AND `CategoriaId` = LAST_INSERT_ID();
+14-12-2023 16:12:41 Information: 22 - Categoria cadastrada com sucesso.
+14-12-2023 16:16:35 Information: 23 - Acessando Repositório de Categorias...
+14-12-2023 16:16:35 Information: 24 - Atualizando dados...
+14-12-2023 16:16:35 Information: 25 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:16:35 Information: 26 - Salvando dados...
+14-12-2023 16:16:35 Information: 27 - Executed DbCommand (2ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 300), @p1='?' (Size = 80)], CommandType='Text', CommandTimeout='30']
+UPDATE `Categorias` SET `ImagemUrl` = @p0, `Nome` = @p1
+WHERE `CategoriaId` = @p2;
+SELECT ROW_COUNT();
+14-12-2023 16:16:35 Information: 28 - Categoria alterada com sucesso.
+14-12-2023 16:16:53 Information: 29 - Acessando Repositório de Categorias...
+14-12-2023 16:16:53 Information: 30 - Buscando informações por ID...
+14-12-2023 16:16:53 Information: 31 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:16:53 Information: 32 - Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`
+FROM `Categorias` AS `c`
+WHERE `c`.`CategoriaId` = @__id_0
+LIMIT 2
+14-12-2023 16:16:53 Information: 33 - Acessando Repositório de Categorias...
+14-12-2023 16:16:53 Information: 34 - Deletando dados...
+14-12-2023 16:16:53 Information: 35 - Salvando dados...
+14-12-2023 16:16:53 Information: 36 - Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM `Categorias`
+WHERE `CategoriaId` = @p0;
+SELECT ROW_COUNT();
+14-12-2023 16:16:53 Information: 37 - Categoria deletada com sucesso.
+14-12-2023 16:18:56 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:18:56 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:18:56 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:18:56 Information: 4 - Hosting environment: Development
+14-12-2023 16:18:56 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:20:03 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:20:03 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:20:03 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:20:03 Information: 4 - Hosting environment: Development
+14-12-2023 16:20:03 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:20:55 Information: 6 - Acessando Repositório de Categorias...
+14-12-2023 16:20:55 Information: 7 - Buscando informações...
+14-12-2023 16:20:56 Information: 8 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:20:57 Information: 9 - Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`, `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Categorias` AS `c`
+LEFT JOIN `Jogos` AS `j` ON `c`.`CategoriaId` = `j`.`CategoriaId`
+ORDER BY `c`.`CategoriaId`
+14-12-2023 16:20:57 Information: 10 - Categorias retornadas com sucesso.
+14-12-2023 16:22:21 Information: 11 - Acessando Repositório de Categorias...
+14-12-2023 16:22:21 Information: 12 - Buscando informações...
+14-12-2023 16:22:21 Information: 13 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:22:21 Information: 14 - Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`, `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Categorias` AS `c`
+LEFT JOIN `Jogos` AS `j` ON `c`.`CategoriaId` = `j`.`CategoriaId`
+ORDER BY `c`.`CategoriaId`
+14-12-2023 16:22:21 Information: 15 - Categorias retornadas com sucesso.
+14-12-2023 16:25:15 Information: 16 - Acessando Repositório de Categorias...
+14-12-2023 16:25:15 Information: 17 - Buscando informações...
+14-12-2023 16:25:15 Information: 18 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:25:15 Information: 19 - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Categorias` AS `c`
+14-12-2023 16:25:16 Information: 20 - Executed DbCommand (16ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoriaId`, `c`.`ImagemUrl`, `c`.`Nome`
+FROM `Categorias` AS `c`
+ORDER BY `c`.`CategoriaId`
+LIMIT @__p_1 OFFSET @__p_0
+14-12-2023 16:25:16 Information: 21 - Categorias retornadas com sucesso.
+14-12-2023 16:31:47 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:31:47 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:31:47 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:31:47 Information: 4 - Hosting environment: Development
+14-12-2023 16:31:47 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:32:13 Information: 6 - Acessando Repositório de Jogos...
+14-12-2023 16:32:13 Information: 7 - Buscando informações...
+14-12-2023 16:32:14 Information: 8 - Entity Framework Core 6.0.18 initialized 'AppDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: ServerVersion 8.0.29-mysql 
+14-12-2023 16:32:14 Information: 9 - Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Jogos` AS `j`
+14-12-2023 16:32:15 Information: 10 - Executed DbCommand (24ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `j`.`JogoId`, `j`.`AnoLancamento`, `j`.`CategoriaId`, `j`.`DataCadastro`, `j`.`Descricao`, `j`.`ImagemUrl`, `j`.`Nome`, `j`.`Nota`, `j`.`Preco`
+FROM `Jogos` AS `j`
+ORDER BY `j`.`JogoId`
+LIMIT @__p_1 OFFSET @__p_0
+14-12-2023 16:32:15 Information: 11 - Jogos retornados com sucesso.
+14-12-2023 16:38:20 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:38:20 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:38:20 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:38:20 Information: 4 - Hosting environment: Development
+14-12-2023 16:38:20 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:41:04 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:41:04 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:41:04 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:41:04 Information: 4 - Hosting environment: Development
+14-12-2023 16:41:04 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:41:44 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:41:44 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:41:44 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:41:44 Information: 4 - Hosting environment: Development
+14-12-2023 16:41:44 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:47:56 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:47:56 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:47:56 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:47:56 Information: 4 - Hosting environment: Development
+14-12-2023 16:47:56 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:50:46 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:50:46 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:50:46 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:50:46 Information: 4 - Hosting environment: Development
+14-12-2023 16:50:46 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:51:32 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:51:32 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:51:32 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:51:32 Information: 4 - Hosting environment: Development
+14-12-2023 16:51:32 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\
+14-12-2023 16:52:14 Information: 1 - Now listening on: https://localhost:7275
+14-12-2023 16:52:14 Information: 2 - Now listening on: http://localhost:5278
+14-12-2023 16:52:14 Information: 3 - Application started. Press Ctrl+C to shut down.
+14-12-2023 16:52:14 Information: 4 - Hosting environment: Development
+14-12-2023 16:52:14 Information: 5 - Content root path: C:\Users\Ricardo Chies\source\repos\EstudoAJV\GamesAPI\GamesAPI\

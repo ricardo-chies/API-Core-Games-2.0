@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GamesAPI</name>
+    </assembly>
+    <members>
+        <member name="P:GamesAPI.DTO.CategoriaDTO.CategoriaId">
+            <summary>
+             Código interno da categoria
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.CategoriaDTO.Nome">
+            <summary>
+             Nome da categoria
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.CategoriaDTO.ImagemUrl">
+            <summary>
+             Url da imagem da categoria
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.CategoriaDTO.Jogos">
+            <summary>
+             Coleção de jogos que pertence a categoria
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.JogoId">
+            <summary>
+             Código interno do jogo.
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.Nome">
+            <summary>
+             Nome do jogo.
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.Descricao">
+            <summary>
+             Descrição do jogo.
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.Nota">
+            <summary>
+             Nota média do jogo dada pelos usuários.
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.Preco">
+            <summary>
+             Preço para compra jogo
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.ImagemUrl">
+            <summary>
+             Url da imagem do jogo.
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.AnoLancamento">
+            <summary>
+             Ano que o jogo foi lançado.
+            </summary>
+        </member>
+        <member name="P:GamesAPI.DTO.JogoDTO.CategoriaId">
+            <summary>
+             Código interno da categoria em que o jogo pertence
+            </summary>
+        </member>
+        <member name="M:APICatalogo.Controllers.CategoriasController.GetCategoriasJogos">
+            <summary>
+            Busca as informações dos jogos registrados acompanhados de suas categorias.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.CategoriasController.Get(GamesAPI.Pagination.CategoriasParameters)">
+            <summary>
+            Busca as informações das categoria de forma páginada.
+            </summary>
+            <param name="categoriasParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.CategoriasController.Get(System.Int32)">
+            <summary>
+            Busca as informações da categoria com base no Id informado.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.CategoriasController.Post(GamesAPI.DTO.CategoriaDTO)">
+            <summary>
+            Realiza o registro de novas categorias.
+            </summary>
+            <param name="categoriaDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.CategoriasController.Put(System.Int32,GamesAPI.DTO.CategoriaDTO)">
+            <summary>
+            Atualiza o registro de uma categoria com base no Id informado.
+            </summary>
+            <param name="categoriaDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.CategoriasController.Delete(System.Int32)">
+            <summary>
+            Deleta o registro de uma categoria com base no Id informado.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.JogosController.Get(GamesAPI.Pagination.JogosParameters)">
+            <summary>
+            Busca as informações dos jogos de forma páginada.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.JogosController.Get(System.Int32)">
+            <summary>
+            Busca as informações do jogo com base no Id informado.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.JogosController.GetJogosPrecos">
+            <summary>
+            Busca as informações dos jogos registrados ordenados com base no preço.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.JogosController.Post(GamesAPI.DTO.JogoDTO)">
+            <summary>
+            Realiza o registro de novos jogos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.JogosController.Put(System.Int32,GamesAPI.Models.Jogo)">
+            <summary>
+            Atualiza o registro de um jogo com base no Id informado.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:APICatalogo.Controllers.JogosController.Delete(System.Int32)">
+            <summary>
+            Deleta o registro de um jogo com base no Id informado.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

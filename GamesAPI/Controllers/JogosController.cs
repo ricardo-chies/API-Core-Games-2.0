@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GamesAPI.DTO;
+using GamesAPI.DTO.Examples;
 using GamesAPI.Models;
 using GamesAPI.Pagination;
 using GamesAPI.Repository;
@@ -27,7 +28,14 @@ namespace APICatalogo.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Busca as informações dos jogos de forma páginada.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(typeof(List<JogoDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<JogoDTO>>> Get([FromQuery] JogosParameters jogosParameters)
         {
             try
@@ -65,7 +73,14 @@ namespace APICatalogo.Controllers
 
         }
 
+        /// <summary>
+        /// Busca as informações do jogo com base no Id informado.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("{id:int}", Name = "ObterJogo")]
+        [ProducesResponseType(typeof(List<JogoDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult<JogoDTO>> Get(int id)
         {
             try
@@ -89,7 +104,14 @@ namespace APICatalogo.Controllers
             }
         }
 
+        /// <summary>
+        /// Busca as informações dos jogos registrados ordenados com base no preço.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("MenorPreco")]
+        [ProducesResponseType(typeof(List<JogoDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<JogoDTO>>> GetJogosPrecos()
         {
             try
@@ -115,7 +137,14 @@ namespace APICatalogo.Controllers
             }
         }
 
+        /// <summary>
+        /// Realiza o registro de novos jogos.
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(typeof(List<JogoDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult> Post([FromBody]JogoDTO jogoDto)
         {
             try
@@ -143,7 +172,14 @@ namespace APICatalogo.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza o registro de um jogo com base no Id informado.
+        /// </summary>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
+        [ProducesResponseType(typeof(List<JogoDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult> Put(int id, [FromBody]Jogo jogoDto)
         {
             try
@@ -170,7 +206,14 @@ namespace APICatalogo.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta o registro de um jogo com base no Id informado.
+        /// </summary>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
+        [ProducesResponseType(typeof(List<JogoDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult<JogoDTO>> Delete(int id)
         {
             try

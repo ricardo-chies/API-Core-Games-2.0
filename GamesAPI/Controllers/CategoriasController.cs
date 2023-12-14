@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using GamesAPI.DTO;
+using GamesAPI.DTO.Examples;
 using GamesAPI.Models;
 using GamesAPI.Pagination;
 using GamesAPI.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace APICatalogo.Controllers
 {
@@ -25,7 +27,14 @@ namespace APICatalogo.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Busca as informações dos jogos registrados acompanhados de suas categorias.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Jogos")]
+        [ProducesResponseType(typeof(List<CategoriaDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetCategoriasJogos()
         {
             try
@@ -51,7 +60,15 @@ namespace APICatalogo.Controllers
 
         }
 
+        /// <summary>
+        /// Busca as informações das categoria de forma páginada.
+        /// </summary>
+        /// <param name="categoriasParameters"></param>
+        /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(typeof(List<CategoriaDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<CategoriaDTO>>> Get([FromQuery] CategoriasParameters categoriasParameters)
         {
             try
@@ -88,8 +105,16 @@ namespace APICatalogo.Controllers
             }
         }
 
+        /// <summary>
+        /// Busca as informações da categoria com base no Id informado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}", Name = "ObterCategoria")]
-        public async Task<ActionResult<CategoriaDTO>> Get(int id)
+        [ProducesResponseType(typeof(List<CategoriaDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<ActionResult<CategoriaDTO>> Get([DefaultValue(1)] int id)
         {
             try
             {
@@ -112,7 +137,15 @@ namespace APICatalogo.Controllers
             }
         }
 
+        /// <summary>
+        /// Realiza o registro de novas categorias.
+        /// </summary>
+        /// <param name="categoriaDto"></param>
+        /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(typeof(List<CategoriaDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult> Post([FromBody]CategoriaDTO categoriaDto)
         {
             try
@@ -141,7 +174,15 @@ namespace APICatalogo.Controllers
 
         }
 
+        /// <summary>
+        /// Atualiza o registro de uma categoria com base no Id informado.
+        /// </summary>
+        /// <param name="categoriaDto"></param>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
+        [ProducesResponseType(typeof(List<CategoriaDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult> Put(int id, [FromBody]CategoriaDTO categoriaDto)
         {
             try
@@ -169,7 +210,15 @@ namespace APICatalogo.Controllers
 
         }
 
+        /// <summary>
+        /// Deleta o registro de uma categoria com base no Id informado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
+        [ProducesResponseType(typeof(List<CategoriaDTO>), StatusCodes.Status200OK)]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public async Task<ActionResult<CategoriaDTO>> Delete(int id)
         {
             try

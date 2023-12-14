@@ -1,5 +1,6 @@
 using AutoMapper;
 using GamesAPI.Context;
+using GamesAPI.DTO.Examples;
 using GamesAPI.DTO.Mapping;
 using GamesAPI.Logging;
 using GamesAPI.Repository;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
+using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -20,9 +23,15 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<ExampleRequest>();
 builder.Services.AddSwaggerGen(c =>
 {
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIGames", Version = "v2" });
+    c.ExampleFilters();
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
@@ -109,8 +118,16 @@ var app = builder.Build(); //configure
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger(c =>
+    {
+        c.SerializeAsV2 = true;
+    });
+    app.UseSwaggerUI(c =>
+    {
+        //c.SwaggerEndpoint("./swagger/v2/swagger.json", "APIGames v2");
+        //c.RoutePrefix = string.Empty;
+        c.DefaultModelExpandDepth(-1);
+    });
 }
 
 // Política Restritiva CORS
